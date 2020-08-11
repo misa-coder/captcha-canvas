@@ -18,7 +18,7 @@ const Captcha = require('captcha-canvas');  //require package here
 const fs = require('fs'); //require fs module for saving image in a file
 const options = {height: 200, width: 600};  //options for captcha image
 const captcha = new Captcha(options); //getting captcha constructor
-captcha.captchaText; //returns text of the captcha image.
+captcha.text; //returns text of the captcha image.
 const buffer = captcha.create(); //returns buffer of the captcha image
 
 fs.writeFileSync('./image.png', buffer); //will create image.png file of the captcha

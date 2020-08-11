@@ -8,7 +8,7 @@ class CaptchaGenerator {
         this.mainColor = options.color || "#32cf7e";
         this.font = options.font || "Comic Sans MS";
         this.characters = options.text? options.text.length : options.characters || 6;
-        this.captchaText = options.text? options.text : crypto.randomBytes(32).toString('hex').toUpperCase().replace(/[^a-z]/gi, '').substr(0, this.characters);
+        this.text = options.text? options.text : crypto.randomBytes(32).toString('hex').toUpperCase().replace(/[^a-z]/gi, '').substr(0, this.characters);
         this.noDecoy = options.noDecoy || false;
         this.decoyColor = options.decoyColor || "#646566";
         this.noTrace = options.noTrace || false;
@@ -51,7 +51,7 @@ class CaptchaGenerator {
         }
         canvas.setTextFont(`${this.fontSize} "${this.font}"`).setColor(this.mainColor)
         for(let n = 0; n < coordinates.length; n++) {
-            canvas.printText(this.captchaText[n], coordinates[n][0], coordinates[n][1])
+            canvas.printText(this.text[n], coordinates[n][0], coordinates[n][1])
         }
         if(options.noBuffer) return canvas
         return canvas.toBuffer()
