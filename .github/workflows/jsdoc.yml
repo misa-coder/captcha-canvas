@@ -16,9 +16,11 @@ jobs:
 
         ref: ${{ github.head_ref }}
 
-    - name: Run php-cs-fixer
+    - name: Install dependencies
       
       run: npm install
+      
+    - name: Generate docs
       
       run: npm run docsgen
 
